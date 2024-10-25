@@ -1,28 +1,29 @@
 import Todo from './components2/Todo';
-import MakeInputArea from './components2/MakeInputArea';
+import MakeUserInputArea from './components2/MakeUserInputArea';
+import MakeSearchInputArea from './components2/MakeSearchInputArea';
 import MakeColorBtn from './components2/MakeColorBtn';
 import MakeListArea from './components2/MakeListArea';
 
 function App() {
   return (
-    <div style={{ backgroundColor: 'ivory', height: '5000px' }}>
+    <div id="root">
       <Todo>
-        <div style={{ textAlign: 'center', display: 'flex', justifyContent: 'space-around' }}>
-          <div>
+        <div id="outer-container">
+          <div id="inner-container-left">
             <h1>Todo App</h1>
-            <MakeInputArea />
-            {/* <div id="colorBtns">
+            <MakeUserInputArea />
+            <div id="colorBtns">
               <MakeColorBtn color="silver" setBoxColor={setBoxColor} />
               <MakeColorBtn color="peachpuff" setBoxColor={setBoxColor} />
               <MakeColorBtn color="lemonchiffon" setBoxColor={setBoxColor} />
               <MakeColorBtn color="mistyrose" setBoxColor={setBoxColor} />
-            </div> */}
+            </div>
             <MakeListArea />
           </div>
 
-          <div>
+          <div id="inner-container-right">
             <h1>Todo Search</h1>
-            <MakeInputArea />
+            <MakeSearchInputArea />
             <MakeListArea />
           </div>
         </div>

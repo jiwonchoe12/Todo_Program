@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { myHook } from './Todo';
 
-//input과 버튼을 만드는 컴포넌트
-export default function MakeInputArea() {
+//user input과 버튼을 만드는 컴포넌트
+export default function MakeUserInputArea() {
   const { inputText, setInputText, boxColor } = myHook();
 
   //TodoList 배열에 요소 추가

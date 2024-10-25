@@ -39,19 +39,6 @@ export default function Todo({ children }) {
 
   const [reRender, setReRender] = useState(false);
 
-  //SearchList 배열에 요소 추가
-  const setSearchListFunc = (input, boxColor, mainList, setMainList) => {
-    const storage = JSON.parse(localStorage.getItem('todo'));
-    setMainList(
-      storage.filter((item) => {
-        if (item.todo.search(input) !== -1) {
-          return true;
-        }
-        return false;
-      }),
-    );
-  };
-
   return (
     <MyContext.Provider
       value={{
