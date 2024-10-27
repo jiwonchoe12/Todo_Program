@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { myHook } from './Todo';
 
 //색상 버튼을 만드는 컴포넌트
-export default function MakeColorBtn() {
-  const {} = myHook();
+export default function MakeColorBtn({color}) {
+  const {setBoxColor} = myHook();
 
   return (
     <button

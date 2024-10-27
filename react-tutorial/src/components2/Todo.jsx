@@ -2,33 +2,6 @@ import React, { useState, createContext, useContext } from 'react';
 
 const MyContext = createContext();
 
-export function myHook() {
-  const {
-    inputText,
-    setInputText,
-    boxColor,
-    setBoxColor,
-    searchText,
-    setSearchText,
-    searchList,
-    setSearchList,
-    reRender,
-    setReRender,
-  } = useContext();
-  return {
-    inputText,
-    setInputText,
-    boxColor,
-    setBoxColor,
-    searchText,
-    setSearchText,
-    searchList,
-    setSearchList,
-    reRender,
-    setReRender,
-  };
-}
-
 export default function Todo({ children }) {
   const [inputText, setInputText] = useState('');
 
@@ -57,4 +30,31 @@ export default function Todo({ children }) {
       {children}
     </MyContext.Provider>
   );
+}
+
+export function myHook() {
+  const {
+    inputText,
+    setInputText,
+    boxColor,
+    setBoxColor,
+    searchText,
+    setSearchText,
+    searchList,
+    setSearchList,
+    reRender,
+    setReRender,
+  } = useContext(MyContext);
+  return {
+    inputText,
+    setInputText,
+    boxColor,
+    setBoxColor,
+    searchText,
+    setSearchText,
+    searchList,
+    setSearchList,
+    reRender,
+    setReRender,
+  };
 }

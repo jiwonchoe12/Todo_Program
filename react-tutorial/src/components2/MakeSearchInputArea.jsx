@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { myHook } from './Todo';
 
 //search input과 버튼을 만드는 컴포넌트
 export default function MakeSearchInputArea() {
-  const { inputText, setInputText, boxColor } = myHook();
+  const { searchText, setSearchText, setSearchList} = myHook();
 
-  //SearchList 배열에 요소 추가
-  const setSearchListFunc = (input, boxColor, mainList, setMainList) => {
+  // SearchList 배열에 요소 추가
+  const addSearchListFunc = useCallback((input) => {
+    console.log("input", input);
     const storage = JSON.parse(localStorage.getItem('todo'));
-    setMainList(
+    if (storage == null){return null;}
+    if (input == ''){setSearchList([]); return null;}
+    setSearchList(
       storage.filter((item) => {
         if (item.todo.search(input) !== -1) {
           return true;
@@ -16,27 +19,20 @@ export default function MakeSearchInputArea() {
         return false;
       }),
     );
-  };
-
+  }, [searchText])
+  
   return (
     <div>
       <input
         type="text"
         onChange={(e) => {
-          setInputText(e.target.value);
+          setSearchText(e.target.value);
+          addSearchListFunc(e.target.value);
         }}
-        value={inputText}
-        style={{ backgroundColor: boxColor, borderRadius: '10px' }}
+        value={searchText}
+        placeholder='search'
+        id="search-input"
       />
-      <button
-        onClick={() => {
-          setTodoListFunc(inputText, boxColor);
-          setInputText('');
-        }}
-        style={{ marginLeft: '3px', borderRadius: '10px' }}
-      >
-        입력
-      </button>
     </div>
   );
 }

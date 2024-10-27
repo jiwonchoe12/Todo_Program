@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { myHook } from './Todo';
+import '../App.css';
 
 //todo item 박스 하나를 만드는 컴포넌트
-export default function MakeTodoItem() {
-  const {} = myHook();
+export default function MakeTodoItem({item}) {
+  const {setReRender} = myHook();
 
   const deleteButtonFunc = () => {
     const storage = JSON.parse(localStorage.getItem('todo'));
@@ -30,20 +31,13 @@ export default function MakeTodoItem() {
 
   return (
     <div
-      style={{
-        backgroundColor: item.color,
-        borderRadius: '5px',
-        marginBottom: '10px',
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <div style={{ paddingLeft: '15px' }}>{item.todo}</div>
-      <div style={{ display: 'flex', marginLeft: 'auto', marginRight: '15px' }}>
-        <button onClick={deleteButtonFunc} style={{ height: '80%', borderRadius: '5px', fontSize: '10px' }}>
+      style={{ backgroundColor: item.color }} id='todo-item-container'>
+      <div id='todo-item-text'>{item.todo}</div>
+      <div id='todo-item-buttons'>
+        <button onClick={deleteButtonFunc} className='delete-modify-button'>
           삭제
         </button>
-        <button onClick={modifyButtonFunc} style={{ height: '80%', borderRadius: '5px', fontSize: '10px' }}>
+        <button onClick={modifyButtonFunc} className='delete-modify-button'>
           수정
         </button>
       </div>

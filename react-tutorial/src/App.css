@@ -1,11 +1,47 @@
 /* App.jsx */
 div#root{
-  background-color: 'ivory';
-  height: '5000px';
+  background-color: ivory;
+  height: 5000px;
 }
 
 div#outer-container{
-  text-align: 'center';
-  display: 'flex';
-  justify-content: 'space-around';
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* MakeUserInputArea.jsx */
+button#user-input-btn{
+  margin-left: 3px;
+  border-radius: 10px;
+}
+
+/* MakeSearchInputArea.jsx */
+input#search-input{
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* MakeTodoItem.jsx */
+div#todo-item-container{
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+div#todo-item-text{
+  padding-left: 15px;
+}
+
+div#todo-item-buttons{
+  display: flex;
+  margin-left: auto; 
+  margin-right: 15px;
+}
+
+button.delete-modify-button{
+  height: 80%; 
+  border-radius: 5px; 
+  font-size: 10px;
 }
